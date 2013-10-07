@@ -14,9 +14,10 @@
 
 <html>
     <head>
-        
+      <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    </head>
     <body>
-        <table>
+        <table class="table">
        <% for(EntidadBancaria entidad: entidadesBancarias){%>
     <tr>
         <td><%=entidad.getIdEntidadBancaria()%></td>
