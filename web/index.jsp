@@ -4,27 +4,30 @@
     Author     : alumno
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAO"%>
 <%@page import="java.util.Date"%>
 <% EntidadBancariaDAO entidadDAO= new EntidadBancariaDAO();
-    EntidadBancaria entidad=entidadDAO.read(1);%>
+    List<EntidadBancaria> entidadesBancarias=entidadDAO.findAll();
+    %>
 
 <html>
     <head>
         
     <body>
-       Id Entidad: <%=entidad.getIdEntidadBancaria()%>
-       <br>
-       Codigo Entidad:<%=entidad.getCodigoEntidad()%>
-       <br>
-       Nombre:<%=entidad.getNombre()%>
-       <br>
-       CIF:<%=entidad.getCif()%>
-       <br>
-       Tipo Entidad Bancaria:<%=entidad.getEntidad()%>
-        
-        
+        <table>
+       <% for(EntidadBancaria entidad: entidadesBancarias){%>
+    <tr>
+        <td><%=entidad.getIdEntidadBancaria()%></td>
+        <td><%=entidad.getCodigoEntidad()%></td>
+        <td><%=entidad.getNombre()%></td>
+        <td><%=entidad.getCif()%></td>
+        <td><%=entidad.getEntidad()%></td>
+    </tr>        
+     <%  }
+        %>
+        </table>
     </body>
     
     </head>
