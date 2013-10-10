@@ -18,8 +18,9 @@
     </head>
     <body>
         <table class="table">
+            <tr class="alert-danger"><td><b>ID</b></td><td><b>CODIGO</b></td><td><b>NOMBRE</b></td><td><b>CIF</b></td><td><b>TIPO ENTIDAD</b></td></tr>
        <% for(EntidadBancaria entidad: entidadesBancarias){%>
-    <tr>
+       <tr class="success">
         <td><%=entidad.getIdEntidadBancaria()%></td>
         <td><%=entidad.getCodigoEntidad()%></td>
         <td><%=entidad.getNombre()%></td>
