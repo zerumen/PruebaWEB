@@ -14,7 +14,8 @@
 
 <html>
     <head>
-      <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+      <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
     </head>
     <body>
         <table class="table">
