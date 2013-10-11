@@ -62,7 +62,7 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
     }
     
    @Override
-    public void Insert(EntidadBancaria entidadBancaria) throws SQLException, Exception{
+    public void insert(EntidadBancaria entidadBancaria) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         String insertTableSQL = "INSERT INTO entidadBancaria"
 		+ "(idEntidad, codigoEntidad, nombre, cif,tipoEntidadBancaria) VALUES"
@@ -80,7 +80,7 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
     }
     
    @Override
-    public void Update(EntidadBancaria entidadBancaria) throws SQLException, Exception{
+    public void update(EntidadBancaria entidadBancaria) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         String updateTableSQL = "UPDATE entidadBancaria SET codigoentidad = ?, nombre = ?, cif = ?,tipoEntidadBancaria = ? WHERE idEntidad = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(updateTableSQL);
@@ -97,7 +97,7 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
     }
    
  @Override
-   public void Delete(int entidadBancaria) throws SQLException, Exception{
+   public void delete(int entidadBancaria) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         String deleteSQL = "DELETE from entidadbancaria WHERE idEntidad = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);

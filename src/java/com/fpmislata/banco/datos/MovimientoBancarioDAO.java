@@ -15,14 +15,14 @@ public interface MovimientoBancarioDAO {
     
     MovimientoBancario read(int idMovimientoBancario) throws  Exception;
     
-    void Insert(MovimientoBancario idMovimientoBancario) throws  Exception;
+    void insert(MovimientoBancario movimientoBancario) throws  Exception;
     
-    void Update(MovimientoBancario movimientoBancario) throws  Exception;
+    void update(MovimientoBancario movimientoBancario) throws  Exception;
     
-    void Delete(int idMovimientoBancario) throws  Exception;
+    void delete(int idMovimientoBancario) throws  Exception;
     
      List<MovimientoBancario> findAll() throws  Exception;
      
-     List<MovimientoBancario> findByCodigo(String codigo) throws  Exception;
+     
     
 }

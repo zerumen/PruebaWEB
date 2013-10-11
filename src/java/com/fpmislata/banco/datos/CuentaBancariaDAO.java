@@ -15,14 +15,14 @@ public interface CuentaBancariaDAO {
     
       CuentaBancaria read(int idCuentaBancaria) throws  Exception;
     
-    void Insert(CuentaBancaria idCuentaBancaria) throws  Exception;
+    void insert(CuentaBancaria idCuentaBancaria) throws  Exception;
     
-    void Update(CuentaBancaria cuentaBancaria) throws  Exception;
+    void update(CuentaBancaria cuentaBancaria) throws  Exception;
     
-    void Delete(int idCuentaBancaria) throws  Exception;
+    void delete(int idCuentaBancaria) throws  Exception;
     
      List<CuentaBancaria> findAll() throws  Exception;
      
-     List<CuentaBancaria> findByCodigo(String codigo) throws  Exception;
+    
     
 }

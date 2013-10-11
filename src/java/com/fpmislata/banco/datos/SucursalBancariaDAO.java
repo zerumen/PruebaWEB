@@ -15,14 +15,14 @@ public interface SucursalBancariaDAO {
     
      Sucursal read(int idSucursalBancaria) throws  Exception;
     
-    void Insert(Sucursal sucursalBancaria) throws  Exception;
+    void insert(Sucursal sucursalBancaria) throws  Exception;
     
-    void Update(Sucursal sucursalBancaria) throws  Exception;
+    void update(Sucursal sucursalBancaria) throws  Exception;
     
-    void Delete(int idSucursalBancaria) throws  Exception;
+    void delete(int idSucursalBancaria) throws  Exception;
     
      List<Sucursal> findAll() throws  Exception;
      
-     List<Sucursal> findByCodigo(String codigo) throws  Exception;
+    
     
 }
