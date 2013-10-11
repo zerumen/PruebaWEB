@@ -4,11 +4,12 @@
     Author     : alumno
 --%>
 
+<%@page import="com.fpmislata.banco.datos.EntidadBancariaDAOImpJBDC"%>
 <%@page import="java.util.List"%>
 <%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAO"%>
 <%@page import="java.util.Date"%>
-<% EntidadBancariaDAO entidadDAO= new EntidadBancariaDAO();
+<% EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpJBDC();
     List<EntidadBancaria> entidadesBancarias=entidadDAO.findAll();
     %>
 

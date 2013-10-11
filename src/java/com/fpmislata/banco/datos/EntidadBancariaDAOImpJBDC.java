@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author alumno
  */
-public class EntidadBancariaDAOImpJBDC {
+public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
 
    ConnectionFactory connectionFactory=new ConnectionFactoryImplDataSource();
     
@@ -28,6 +28,7 @@ public class EntidadBancariaDAOImpJBDC {
     }
     
     
+   @Override
     public EntidadBancaria read(int idEntidad) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         String userid;
@@ -60,6 +61,7 @@ public class EntidadBancariaDAOImpJBDC {
     
     }
     
+   @Override
     public void Insert(EntidadBancaria entidadBancaria) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         String insertTableSQL = "INSERT INTO entidadBancaria"
@@ -77,6 +79,7 @@ public class EntidadBancariaDAOImpJBDC {
         connection.close();
     }
     
+   @Override
     public void Update(EntidadBancaria entidadBancaria) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         String updateTableSQL = "UPDATE entidadBancaria SET codigoentidad = ?, nombre = ?, cif = ?,tipoEntidadBancaria = ? WHERE idEntidad = ?";
@@ -92,7 +95,8 @@ public class EntidadBancariaDAOImpJBDC {
         System.out.println("modificado registro!");
         connection.close();
     }
-    
+   
+ @Override
    public void Delete(int entidadBancaria) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         String deleteSQL = "DELETE from entidadbancaria WHERE idEntidad = ?";
@@ -106,6 +110,7 @@ public class EntidadBancariaDAOImpJBDC {
         
     }
     
+   @Override
    public  List<EntidadBancaria> findAll() throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
         List <EntidadBancaria> entidadBancarias=new ArrayList();
@@ -130,6 +135,7 @@ public class EntidadBancariaDAOImpJBDC {
         
     }
     
+   @Override
     public List<EntidadBancaria> findByCodigo(String codigo) throws SQLException, Exception{
         Connection connection=connectionFactory.getConnection();
        List <EntidadBancaria> entidadBancarias=new ArrayList();
@@ -154,4 +160,10 @@ public class EntidadBancariaDAOImpJBDC {
         return entidadBancarias;
         
     }
+
+  
+
+   
+
+    
 }

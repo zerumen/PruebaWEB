@@ -13,16 +13,16 @@ import java.util.List;
  */
 public interface EntidadBancariaDAO {
     
-    EntidadBancaria read(int idEntidad);
+    EntidadBancaria read(int idEntidad) throws  Exception;
     
-    void insert(EntidadBancaria entidadBancaria);
+    void Insert(EntidadBancaria entidadBancaria) throws  Exception;
     
-    void update(EntidadBancaria entidadBancaria);
+    void Update(EntidadBancaria entidadBancaria) throws  Exception;
     
-    void delete(int idEntidad);
+    void Delete(int idEntidad) throws  Exception;
     
-    List<EntidadBancaria> findAll();
+    List<EntidadBancaria> findAll() throws  Exception;
     
-    List<EntidadBancaria> findByCodigo(String codigo);
+    List<EntidadBancaria> findByCodigo(String codigo) throws  Exception;
     
 }
