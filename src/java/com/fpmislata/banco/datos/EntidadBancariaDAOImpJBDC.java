@@ -22,14 +22,15 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
 
    ConnectionFactory connectionFactory=new ConnectionFactoryImplDataSource();
     
-   public EntidadBancariaDAOImpJBDC() throws ClassNotFoundException, SQLException {
+   public EntidadBancariaDAOImpJBDC(){
        
         
     }
     
     
    @Override
-    public EntidadBancaria read(int idEntidad) throws SQLException, Exception{
+    public EntidadBancaria read(Integer idEntidad){
+       try{
         Connection connection=connectionFactory.getConnection();
         String userid;
         String selectSQL = "SELECT idEntidad,codigoEntidad,nombre,CIF,tipoEntidadBancaria FROM entidadBancaria WHERE idEntidad = ?";
@@ -58,11 +59,15 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
         }
         connection.close();
         return entidadbancaria;
+       }catch(Exception ex){
+           throw new RuntimeException("Error",ex);
+       }
     
     }
     
    @Override
-    public void insert(EntidadBancaria entidadBancaria) throws SQLException, Exception{
+    public void insert(EntidadBancaria entidadBancaria) {
+       try{
         Connection connection=connectionFactory.getConnection();
         String insertTableSQL = "INSERT INTO entidadBancaria"
 		+ "(idEntidad, codigoEntidad, nombre, cif,tipoEntidadBancaria) VALUES"
@@ -77,10 +82,14 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
         preparedStatement .executeUpdate();
         System.out.println("Insertado registro!");
         connection.close();
+       } catch(Exception ex){
+           throw new RuntimeException("Error",ex);
+       }
     }
     
    @Override
-    public void update(EntidadBancaria entidadBancaria) throws SQLException, Exception{
+    public void update(EntidadBancaria entidadBancaria){
+       try{
         Connection connection=connectionFactory.getConnection();
         String updateTableSQL = "UPDATE entidadBancaria SET codigoentidad = ?, nombre = ?, cif = ?,tipoEntidadBancaria = ? WHERE idEntidad = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(updateTableSQL);
@@ -94,10 +103,14 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
         preparedStatement .executeUpdate();
         System.out.println("modificado registro!");
         connection.close();
+       }catch(Exception ex){
+           throw new RuntimeException("Error",ex);
+       }
     }
    
  @Override
-   public void delete(int entidadBancaria) throws SQLException, Exception{
+   public void delete(Integer entidadBancaria){
+     try{
         Connection connection=connectionFactory.getConnection();
         String deleteSQL = "DELETE from entidadbancaria WHERE idEntidad = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);
@@ -107,11 +120,15 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
         
         System.out.println("Eliminado registro!!");
         connection.close();
+     }catch(Exception ex){
+           throw new RuntimeException("Error",ex);
+       }
         
     }
     
    @Override
-   public  List<EntidadBancaria> findAll() throws SQLException, Exception{
+   public  List<EntidadBancaria> findAll(){
+       try{
         Connection connection=connectionFactory.getConnection();
         List <EntidadBancaria> entidadBancarias=new ArrayList();
         EntidadBancaria entidadBancaria;
@@ -132,11 +149,15 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
         }
         connection.close();
         return entidadBancarias;
+       }catch(Exception ex){
+           throw new RuntimeException("Error",ex);
+       }
         
     }
     
    @Override
-    public List<EntidadBancaria> findByCodigo(String codigo) throws SQLException, Exception{
+    public List<EntidadBancaria> findByCodigo(String codigo){
+       try{
         Connection connection=connectionFactory.getConnection();
        List <EntidadBancaria> entidadBancarias=new ArrayList();
         EntidadBancaria entidadBancaria;
@@ -158,7 +179,9 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
         }
         connection.close();
         return entidadBancarias;
-        
+       }catch(Exception ex){
+           throw new RuntimeException("Error",ex);
+       }
     }
 
   

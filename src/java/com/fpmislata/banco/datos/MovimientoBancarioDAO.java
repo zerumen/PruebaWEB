@@ -11,18 +11,9 @@ import java.util.List;
  *
  * @author alumno
  */
-public interface MovimientoBancarioDAO {
+public interface MovimientoBancarioDAO extends GenericDAO<MovimientoBancario, Integer> {
     
-    MovimientoBancario read(int idMovimientoBancario) throws  Exception;
-    
-    void insert(MovimientoBancario movimientoBancario) throws  Exception;
-    
-    void update(MovimientoBancario movimientoBancario) throws  Exception;
-    
-    void delete(int idMovimientoBancario) throws  Exception;
-    
-     List<MovimientoBancario> findAll() throws  Exception;
-     
+  
      
     
 }

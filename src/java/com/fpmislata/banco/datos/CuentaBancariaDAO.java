@@ -11,18 +11,9 @@ import java.util.List;
  *
  * @author alumno
  */
-public interface CuentaBancariaDAO {
+public interface CuentaBancariaDAO extends GenericDAO<CuentaBancaria, Integer> {
     
-      CuentaBancaria read(int idCuentaBancaria) throws  Exception;
-    
-    void insert(CuentaBancaria idCuentaBancaria) throws  Exception;
-    
-    void update(CuentaBancaria cuentaBancaria) throws  Exception;
-    
-    void delete(int idCuentaBancaria) throws  Exception;
-    
-     List<CuentaBancaria> findAll() throws  Exception;
-     
+   
     
     
 }
