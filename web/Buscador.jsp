@@ -16,9 +16,9 @@
         <form action="index.jsp">
             Introduce el nombre de la sucursal a buscar:
             <br/>
-            <input type="text" name="nombre">
+            <input  type="text" name="nombre">
             <br/>
-            <input type="button" value="Buscar" id="busca" >
+            <input type="button" value="Buscar">
         </form>
     </body>
 </html>

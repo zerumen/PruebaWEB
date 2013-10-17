@@ -22,7 +22,11 @@
       <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
     </head>
     <body>
-        <%=nombre%>
+        <form  class ="input-medium search-query" action="index.jsp">
+            <b>Nombre sucursal:</b>
+            <input  type="text" name="nombre">
+            <input type="button" value="Buscar" class="btn-danger">
+        </form>
         <table class="table">
             <tr class="alert-danger"><td><b>ID</b></td><td><b>CODIGO</b></td><td><b>NOMBRE</b></td><td><b>CIF</b></td><td><b>TIPO ENTIDAD</b></td></tr>
        <% for(EntidadBancaria entidad: entidadesBancarias){%>
