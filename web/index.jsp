@@ -22,9 +22,9 @@
       <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
     </head>
     <body>
-        <form  class ="input-medium search-query" action="index.jsp">
+        <form  action="index.jsp">
             <b>Nombre sucursal:</b>
-            <input  type="text" name="nombre">
+            <input  type="text" name="nombre"  class ="input-medium search-query">
             <input type="button" value="Buscar" class="btn-danger">
         </form>
         <table class="table">
