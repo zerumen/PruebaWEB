@@ -9,8 +9,11 @@
 <%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAO"%>
 <%@page import="java.util.Date"%>
-<% EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpJBDC();
-    List<EntidadBancaria> entidadesBancarias=entidadDAO.findAll();
+<% String nombre= request.getParameter("nombre");
+    
+    EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpJBDC();
+    List<EntidadBancaria> entidadesBancarias=entidadDAO.findByNombre(nombre);
+    
     %>
 
 <html>
@@ -19,6 +22,7 @@
       <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
     </head>
     <body>
+        <%=nombre%>
         <table class="table">
             <tr class="alert-danger"><td><b>ID</b></td><td><b>CODIGO</b></td><td><b>NOMBRE</b></td><td><b>CIF</b></td><td><b>TIPO ENTIDAD</b></td></tr>
        <% for(EntidadBancaria entidad: entidadesBancarias){%>

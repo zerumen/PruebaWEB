@@ -183,10 +183,37 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
            throw new RuntimeException("Error",ex);
        }
     }
-
-  
-
    
+   @Override
+        public List<EntidadBancaria> findByNombre(String nombre){
+       try{
+       Connection connection=connectionFactory.getConnection();
+       List <EntidadBancaria> entidadBancarias=new ArrayList();
+       EntidadBancaria entidadBancaria;
+       String listaSQL="SELECT idEntidad,codigoEntidad, nombre, cif, tipoEntidadBancaria from entidadbancaria where nombre like ?";
+       PreparedStatement preparedStatement= connection.prepareStatement(listaSQL);
+       preparedStatement.setString(1,"%"+nombre+"%");
+       ResultSet resultset = preparedStatement.executeQuery(); 
+       while(resultset.next()==true){
+        entidadBancaria=new EntidadBancaria();
+        
+        entidadBancaria.setIdEntidadBancaria(resultset.getInt("idEntidad"));
+        entidadBancaria.setCodigoEntidad(resultset.getString("codigoEntidad"));
+        entidadBancaria.setNombre(resultset.getString("nombre"));
+        entidadBancaria.setCif(resultset.getString("CIF"));
+        String tipoEntidadBancaria=resultset.getString("tipoEntidadBancaria");
+        entidadBancaria.setEntidad(TipoentidadBancaria.valueOf(tipoEntidadBancaria));
+        entidadBancarias.add(entidadBancaria);
+        }
+        connection.close();
+        return entidadBancarias;
+       
+       }catch(Exception ex){
+           throw new RuntimeException("Error",ex);
+
+       }
+
+   }
 
     
 }

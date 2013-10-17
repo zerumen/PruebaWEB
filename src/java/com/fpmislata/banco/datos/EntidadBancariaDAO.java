@@ -15,5 +15,5 @@ public interface EntidadBancariaDAO  extends GenericDAO<EntidadBancaria, Integer
     
 
     List<EntidadBancaria> findByCodigo(String codigo) throws  Exception;
-    
+    List<EntidadBancaria> findByNombre(String nombre) throws  Exception;
 }
