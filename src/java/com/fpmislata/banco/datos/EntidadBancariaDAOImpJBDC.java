@@ -185,15 +185,20 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
     }
    
    @Override
-        public List<EntidadBancaria> findByNombre(String nombre){
+     public List<EntidadBancaria> findByNombre(String nombre){
        try{
        Connection connection=connectionFactory.getConnection();
        List <EntidadBancaria> entidadBancarias=new ArrayList();
+       if((nombre == null)||(nombre.trim().equals(""))){
+           entidadBancarias=findAll();
+           
+       }else{
        EntidadBancaria entidadBancaria;
        String listaSQL="SELECT idEntidad,codigoEntidad, nombre, cif, tipoEntidadBancaria from entidadbancaria where nombre like ?";
        PreparedStatement preparedStatement= connection.prepareStatement(listaSQL);
        preparedStatement.setString(1,"%"+nombre+"%");
        ResultSet resultset = preparedStatement.executeQuery(); 
+       
        while(resultset.next()==true){
         entidadBancaria=new EntidadBancaria();
         
@@ -205,6 +210,7 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
         entidadBancaria.setEntidad(TipoentidadBancaria.valueOf(tipoEntidadBancaria));
         entidadBancarias.add(entidadBancaria);
         }
+       }
         connection.close();
         return entidadBancarias;
        
@@ -212,7 +218,7 @@ public class EntidadBancariaDAOImpJBDC  implements EntidadBancariaDAO{
            throw new RuntimeException("Error",ex);
 
        }
-
+  
    }
 
     
