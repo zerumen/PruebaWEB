@@ -4,6 +4,7 @@
     Author     : alumno
 --%>
 
+<%@page import="com.fpmislata.banco.datos.EntidadBancariaDAOImpHibernate"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAOImpJBDC"%>
 <%@page import="java.util.List"%>
 <%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
@@ -11,7 +12,7 @@
 <%@page import="java.util.Date"%>
 <% String nombre= request.getParameter("nombre");
     
-    EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpJBDC();
+    EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpHibernate();
     List<EntidadBancaria> entidadesBancarias=entidadDAO.findByNombre(nombre);
     
     %>
