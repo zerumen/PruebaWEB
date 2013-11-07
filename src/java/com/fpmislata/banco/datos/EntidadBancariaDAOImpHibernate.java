@@ -28,7 +28,8 @@ public class EntidadBancariaDAOImpHibernate extends GenericDAOImpHibernate<Entid
    @Override
     public List<EntidadBancaria> findByCodigo(String codigo){
        Session session=sessionFactory.getCurrentSession();
-       Query query = session.createQuery("SELECT eb FROM entidadBancaria eb where codigoEntidad=?");
+       Query query = session.createQuery("SELECT eb FROM EntidadBancaria eb where codigoEntidad= ?");
+       query.setString(0, codigo);
        List<EntidadBancaria> listaporCodigo = query.list();
         
        return listaporCodigo;
@@ -38,8 +39,13 @@ public class EntidadBancariaDAOImpHibernate extends GenericDAOImpHibernate<Entid
    @Override
      public List<EntidadBancaria> findByNombre(String nombre){
        Session session=sessionFactory.getCurrentSession();
-       Query query = session.createQuery("SELECT eb FROM entidadBancaria eb where nombre=?");
+       Query query = session.createQuery("SELECT eb FROM EntidadBancaria eb where nombre like ?");
+       query.setString(0,"%"+nombre+"%");
        List<EntidadBancaria> listaporNombre = query.list();
+        if((nombre == null)||(nombre.trim().equals(""))){
+           listaporNombre=findAll();
+           
+       }
        
        return listaporNombre;
        
