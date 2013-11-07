@@ -29,7 +29,7 @@
             <input type="button" value="Buscar" class="btn-danger">
         </form>
         <table class="table">
-            <tr class="alert-danger"><td><b>ID</b></td><td><b>CODIGO</b></td><td><b>NOMBRE</b></td><td><b>CIF</b></td><td><b>TIPO ENTIDAD</b></td></tr>
+            <tr class="alert-danger"><td><b>ID</b></td><td><b>CODIGO</b></td><td><b>NOMBRE</b></td><td><b>CIF</b></td><td><b>TIPO ENTIDAD</b></td><td><b>BORRAR</b></td></tr>
        <% for(EntidadBancaria entidad: entidadesBancarias){%>
        <tr class="success">
         <td><%=entidad.getIdEntidadBancaria()%></td>
@@ -37,6 +37,7 @@
         <td><%=entidad.getNombre()%></td>
         <td><%=entidad.getCif()%></td>
         <td><%=entidad.getEntidad()%></td>
+        <td><a href="borrar.jsp">Borrar Entidad</a></td>
     </tr>        
      <%  }
         %>
