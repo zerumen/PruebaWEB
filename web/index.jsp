@@ -37,7 +37,7 @@
         <td><%=entidad.getNombre()%></td>
         <td><%=entidad.getCif()%></td>
         <td><%=entidad.getEntidad()%></td>
-        <td><a href="borrar.jsp">Borrar Entidad</a></td>
+        <td><a href="borrar.jsp?idEntidadBancaria=<%=entidad.getIdEntidadBancaria()%>">Borrar Entidad</a></td>
     </tr>        
      <%  }
         %>

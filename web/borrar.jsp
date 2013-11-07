@@ -4,14 +4,31 @@
     Author     : alumno
 --%>
 
+<%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
+<%@page import="com.fpmislata.banco.datos.EntidadBancariaDAOImpHibernate"%>
+<%@page import="com.fpmislata.banco.datos.EntidadBancariaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    Integer idEntidadBancaria=Integer.parseInt (request.getParameter("idEntidadBancaria"));
+    
+    EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpHibernate();
+    
+    EntidadBancaria entidad=entidadDAO.read(idEntidadBancaria);
+    
+    entidadDAO.delete(idEntidadBancaria);
+            
+   
+    
+    %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Borrado </title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Borrado </h1>
+        <h2>Codigo entidad: <%=entidad.getCodigoEntidad()%></h2>
+        <h3>Nombre Entidad: <%=entidad.getNombre()%>
     </body>
 </html>
