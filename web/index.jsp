@@ -28,7 +28,7 @@
             <input  type="text" name="nombre"  class ="input-medium search-query">
             <input type="button" value="Buscar" class="btn-danger">
         </form>
-        <input type="button" value="Nuevo" class="btn-danger" src="nuevo.jsp">      
+        <a href="nuevo.jsp"><input type="button" value="Nuevo" class="btn-danger" src="nuevo.jsp"></a>      
                <table class="table">
             <tr class="alert-danger"><td><b>ID</b></td><td><b>CODIGO</b></td><td><b>NOMBRE</b></td><td><b>CIF</b></td><td><b>TIPO ENTIDAD</b></td><td><b>BORRAR</b></td></tr>
        <% for(EntidadBancaria entidad: entidadesBancarias){%>

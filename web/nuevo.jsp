@@ -28,7 +28,7 @@
             <input  type="text" name="cif"  class ="input-medium search-query">
             <br>
             
-            <input type="button" value="Buscar" class="btn-danger">
+            <input type="button" value="Insertar" class="btn-danger">
         </form>
     </body>
 </html>
