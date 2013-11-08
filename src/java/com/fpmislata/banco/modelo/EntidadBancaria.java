@@ -22,6 +22,12 @@ public class EntidadBancaria {
   
     private List<Sucursal> sucursalesBancarias=new ArrayList<>();
     
+    public EntidadBancaria(){
+        nombre="Banco de";
+        entidad= TipoentidadBancaria.BANCO;
+        
+    }
+
     public EntidadBancaria(int idEntidad,String codigoEntidad,String nombre,String cif, TipoentidadBancaria entidad){
         this.idEntidadBancaria=idEntidad;
         this.codigoEntidad=codigoEntidad;
@@ -31,10 +37,7 @@ public class EntidadBancaria {
         
     }
     
-    public EntidadBancaria(){
-        
-    }
-
+   
     public int getIdEntidadBancaria() {
         return idEntidadBancaria;
     }

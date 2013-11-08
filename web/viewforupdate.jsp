@@ -1,56 +1,40 @@
 <%-- 
-    Document   : nuevo
-    Created on : 07-nov-2013, 10:42:59
+    Document   : viewforupdate
+    Created on : 08-nov-2013, 9:46:57
     Author     : alumno
 --%>
 
-<%@page import="com.fpmislata.banco.modelo.TipoentidadBancaria"%>
 <%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAOImpHibernate"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpHibernate();
-
-    EntidadBancaria entidad=new EntidadBancaria();
+ <% Integer idEntidadBancaria=Integer.parseInt (request.getParameter("idEntidadBancaria"));
     
-    String codigo=entidad.getCodigoEntidad();
-    if(entidad.getCodigoEntidad()==null){
-        codigo="";
-    }
-    String nombre=entidad.getNombre();
-    if(entidad.getNombre()==null){
-        nombre="";
-    }
+    EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpHibernate();
     
-    String cif=entidad.getCif();
-    if(entidad.getCif()==null){
-        cif="";
-    }
-    
-   
+    EntidadBancaria entidad=entidadDAO.read(idEntidadBancaria);
     
 %>
 <html>
-    <head>
-      <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+   <link href="css/bootstrap.css" rel="stylesheet" media="screen">
       <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nueva Entidad</title>
+        <title>EDITAR</title>
     </head>
     <body>
-       <form action="insert.jsp">
+       <form action="update.jsp">
             <b>Id Entidad:</b>
-            <input  type="text" name="idEntidadBancaria"  class ="input-mini">
+            <input  type="text" name="idEntidadBancaria"  class ="input-mini" value="<%=entidad.getIdEntidadBancaria()%>" readonly>
             <br>
             <b>Codigo Entidad:</b>
-            <input  type="text" name="codigo"  class ="input-mini">
+            <input  type="text" name="codigo"  class ="input-mini" value="<%=entidad.getCodigoEntidad()%>">
             <br>
             <b>Nombre sucursal:</b>
             <input  type="text" name="nombre"  class ="input-medium search-query" value="<%=entidad.getNombre()%>">
             <br>
             <b>CIF:</b>
-            <input  type="text" name="cif"  class ="input-medium search-query">
+            <input  type="text" name="cif"  class ="input-medium search-query" value="<%=entidad.getCif()%>">
             <br>
             <b>Tipo de Entidad Bancaria:</b>
             <select name="TipoEntidadBancaria">
@@ -61,7 +45,8 @@
             </select> 
             <br>
             
-            <input type="submit" value="Insertar" class="btn-danger">
+            <input type="submit" value="Editar" class="btn-danger">
         </form>
     </body>
 </html>
+

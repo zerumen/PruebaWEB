@@ -1,13 +1,13 @@
 <%-- 
-    Document   : insert
-    Created on : 07-nov-2013, 10:56:52
+    Document   : update
+    Created on : 08-nov-2013, 10:00:29
     Author     : alumno
 --%>
 
-<%@page import="com.fpmislata.banco.modelo.TipoentidadBancaria"%>
-<%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAOImpHibernate"%>
 <%@page import="com.fpmislata.banco.datos.EntidadBancariaDAO"%>
+<%@page import="com.fpmislata.banco.modelo.TipoentidadBancaria"%>
+<%@page import="com.fpmislata.banco.modelo.EntidadBancaria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
@@ -24,16 +24,16 @@
         entidad.setCif(cifentidad);
         entidad.setEntidad(tipoentidadbancaria);
     EntidadBancariaDAO entidadDAO= new EntidadBancariaDAOImpHibernate();
-    entidadDAO.insert(entidad);
+    entidadDAO.update(entidad);
  
     %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Insertado</title>
+        <title>Editado</title>
     </head>
     <body>
-        <h1>Insertado</h1>
+        <h1>Editado!</h1>
         <a href="index.jsp">Volver a Listado</a>
     </body>
 </html>
